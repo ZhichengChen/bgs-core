@@ -71,7 +71,7 @@ public abstract class BackgroundService extends Service {
 		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);  
 
 		// Should default to a minute
-		return sharedPrefs.getInt(this.getClass().getName() + ".Milliseconds", 60000 );	
+		return sharedPrefs.getInt(this.getClass().getName() + ".Milliseconds", 6000 );	
 	}
 
 	public void setMilliseconds(int milliseconds) {
@@ -224,6 +224,10 @@ public abstract class BackgroundService extends Service {
 						Log.d(TAG, "Listener removed");
 					else 
 						Log.d(TAG, "Listener not found");
+
+					Intent dialogIntent = new Intent(getBaseContext(), com.example.hello.HelloWorld.class);
+					dialogIntent.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+					getApplication().startActivity(dialogIntent);
 				}
 			}
 		}
