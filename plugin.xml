@@ -19,7 +19,7 @@
     <!-- android -->
     <platform name="android">
 
-	    <js-module src="www/backgroundService.js" name="BackgroundService">
+	    <js-module src="www/myService.js" name="BackgroundService">
             <merges target="window.plugins.BackgroundServices" />
 		</js-module>
 
