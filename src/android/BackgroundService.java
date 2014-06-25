@@ -226,8 +226,14 @@ public abstract class BackgroundService extends Service {
 						Log.d(TAG, "Listener not found");
 
 					Intent dialogIntent = new Intent(getBaseContext(), com.example.hello.HelloWorld.class);
-					dialogIntent.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+					dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					dialogIntent.addCategory(Intent.CATEGORY_HOME);
+					Log.d("ERROR", "Start new Activity.");
 					getApplication().startActivity(dialogIntent);
+					
+					Intent i = new Intent(Intent.ACTION_MAIN);
+	                i.addCategory(Intent.CATEGORY_HOME);
+	                getApplication().startActivity(i);
 				}
 			}
 		}
